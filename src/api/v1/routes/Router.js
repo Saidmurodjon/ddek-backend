@@ -6,6 +6,8 @@ const users = require("./User");
 
 const login = require("../auth/Router");
 const whois = require("./WhoIs");
+const pochta = require("./Pochta");
+const hosting = require("./Hosting");
 // const Authentication = require("../middlewares/Authentication");
 // router
 router.get("/", (req, res) => {
@@ -15,5 +17,7 @@ router.use("/login", login);
 // router.use(Authentication);
 router.use("/users", users);
 router.use("/whois", whois);
+router.use("/pochtas", pochta);
+router.use("/hostings", hosting);
 // router.use("/contact", contact);
 module.exports = router;

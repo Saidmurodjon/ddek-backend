@@ -24,10 +24,14 @@ const ADMIN = {
 // Modeles
 const User = require("../models/User");
 const Contact = require("../models/Contact");
+const Pochta = require("../models/Pochta");
+const Hosting = require("../models/Hosting");
 AdminBro.registerAdapter(mongooseAdminBro);
 const AdminBroOptions = {
   resources: [
     User,
+    Pochta,
+    Hosting,
     {
       resource: Contact,
       options: {
