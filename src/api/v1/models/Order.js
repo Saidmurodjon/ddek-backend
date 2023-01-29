@@ -1,14 +1,27 @@
 const mongoose = require("mongoose");
-
-const Schema = new mongoose.Schema({
-  
-  author: {
+const ordered = mongoose.Schema({
+  Pochta: {
     type: mongoose.Schema.Types.ObjectId,
-    required: true,
-    ref: "User",
+    ref: "Pochta",
   },
-  item: {},
-  createdAt: Date,
-  updateAt: Date,
+  Hosting: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Hosting",
+  },
+  Custom: { type: Object },
 });
+const Schema = new mongoose.Schema(
+  {
+    author: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+      ref: "User",
+    },
+    message: String,
+    isOrdered: ordered,
+  },
+  {
+    timestamps: true,
+  }
+);
 module.exports = mongoose.model("Order", Schema);

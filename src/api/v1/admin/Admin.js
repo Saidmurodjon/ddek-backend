@@ -23,6 +23,7 @@ const ADMIN = {
 };
 // Modeles
 const User = require("../models/User");
+const Order = require("../models/Order");
 const Contact = require("../models/Contact");
 const Pochta = require("../models/Pochta");
 const Hosting = require("../models/Hosting");
@@ -31,6 +32,7 @@ const AdminBroOptions = {
   resources: [
     User,
     Pochta,
+    Order,
     Hosting,
     {
       resource: Contact,
