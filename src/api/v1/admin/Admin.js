@@ -26,11 +26,29 @@ const Order = require("../models/Order");
 const Contact = require("../models/Contact");
 const Pochta = require("../models/Pochta");
 const Hosting = require("../models/Hosting");
+const Workers = require("../models/Workers");
+const Products = require("../models/Products");
 AdminBro.registerAdapter(mongooseAdminBro);
 const AdminBroOptions = {
   resources: [
-    User,
-    Pochta,
+    {
+      resource: User,
+      options: {
+        parent: { name: "Admin" },
+        properties: {
+          _id: { isVisible: false },
+        },
+      },
+    },
+    {
+      resource: Pochta,
+      options: {
+        parent: { name: "Products" },
+        properties: {
+          _id: { isVisible: false },
+        },
+      },
+    },
     {
       resource: Order,
       options: {
@@ -43,10 +61,19 @@ const AdminBroOptions = {
         },
       },
     },
-    Hosting,
+    {
+      resource: Hosting,
+      options: {
+        parent: { name: "Products" },
+        properties: {
+          _id: { isVisible: false },
+        },
+      },
+    },
     {
       resource: Contact,
       options: {
+        parent: { name: "Admin" },
         properties: {
           message: {
             type: "richtext",
@@ -54,10 +81,28 @@ const AdminBroOptions = {
         },
       },
     },
+    {
+      resource: Workers,
+      options: {
+        parent: { name: "Our Team" },
+        properties: {
+          _id: { isVisible: false },
+        },
+      },
+    },
+    {
+      resource: Products,
+      options: {
+        parent: { name: "Our Team" },
+        properties: {
+          _id: { isVisible: false },
+        },
+      },
+    },
   ],
   branding: {
     logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6p-sWBRDuG53fSWVREq_FCNcEAmcAezXfXA&usqp=CAU",
-    companyName: "Optimum dev",
+    companyName: "ddek",
     softwareBrothers: false, // if Software Brothers logos should be shown in the sidebar footer
   },
 };

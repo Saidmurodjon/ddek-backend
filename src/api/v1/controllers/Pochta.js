@@ -1,5 +1,5 @@
 const Model = require("./../models/Pochta");
-// This is medicine controller
+// This is pochta controller
 module.exports = {
   Get: async function (req, res) {
     try {

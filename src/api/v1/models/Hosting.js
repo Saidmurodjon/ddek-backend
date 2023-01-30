@@ -15,6 +15,7 @@ const Schema = new mongoose.Schema(
     ftp: { type: Boolean, require: true, default: false },
     dns: { type: Boolean, require: false, default: false },
     access_log: { type: Boolean, required: true, default: false },
+    isPublished: { type: Boolean, default: false },
   },
   {
     timestamps: true,
