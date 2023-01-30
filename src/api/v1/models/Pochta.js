@@ -7,6 +7,7 @@ const Schema = new mongoose.Schema(
     capacity: { type: Number, default: 0 },
     box: { type: Number, require: true },
     price: { type: Number, require: true },
+    isPublished: { type: Boolean, default: false },
   },
   {
     timestamps: true,

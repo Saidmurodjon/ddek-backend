@@ -1,7 +1,6 @@
 const AdminBro = require("admin-bro");
 const AdminBroExpress = require("admin-bro-expressjs");
 // const AdminBroMongoose = require('admin-bro-mongoose')
-
 // const mongoose = require('mongoose')
 const mongooseAdminBro = require("@admin-bro/mongoose");
 // AdminBro.registerAdapter(AdminBroMongoose)
@@ -32,7 +31,18 @@ const AdminBroOptions = {
   resources: [
     User,
     Pochta,
-    Order,
+    {
+      resource: Order,
+      options: {
+        parent: { name: "Admin" },
+        properties: {
+          _id: { isVisible: false },
+          isOrdered: {
+            type: "textarea",
+          },
+        },
+      },
+    },
     Hosting,
     {
       resource: Contact,
@@ -45,6 +55,11 @@ const AdminBroOptions = {
       },
     },
   ],
+  branding: {
+    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6p-sWBRDuG53fSWVREq_FCNcEAmcAezXfXA&usqp=CAU",
+    companyName: "Optimum dev",
+    softwareBrothers: false, // if Software Brothers logos should be shown in the sidebar footer
+  },
 };
 
 const adminBro = new AdminBro(AdminBroOptions);
