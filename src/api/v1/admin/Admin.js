@@ -28,6 +28,7 @@ const Pochta = require("../models/Pochta");
 const Hosting = require("../models/Hosting");
 const Workers = require("../models/Workers");
 const Products = require("../models/Products");
+const NewHostingCreator = require("../models/NewHostingCreator");
 AdminBro.registerAdapter(mongooseAdminBro);
 const AdminBroOptions = {
   resources: [
@@ -63,6 +64,15 @@ const AdminBroOptions = {
     },
     {
       resource: Hosting,
+      options: {
+        parent: { name: "Products" },
+        properties: {
+          _id: { isVisible: false },
+        },
+      },
+    },
+    {
+      resource: NewHostingCreator,
       options: {
         parent: { name: "Products" },
         properties: {
