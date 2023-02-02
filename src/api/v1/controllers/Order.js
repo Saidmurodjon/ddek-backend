@@ -12,9 +12,8 @@ module.exports = {
   },
   //Order is created
   Post: async function (req, res) {
-    const { author, isOrdered, type } = req.body;
+    const { author, isOrdered, type, message } = req.body;
     // const authorId = req.query?.authorId;
-    console.log(req.body);
     try {
       const user = await UserModel.findById({ _id: author });
       if (!user) {
@@ -26,14 +25,13 @@ module.exports = {
       const newOrder = {
         author,
         isOrdered: JSON.stringify(isOrdered),
+        message,
         type,
       };
       const value = await Model.create(newOrder);
-      console.log(value);
       return res.status(201).send(value);
     } catch (err) {
       res.status(401).send("Yaratishda hatolik yuz berdi");
-      console.log(err);
     }
   },
 };

@@ -11,7 +11,7 @@ async function WhoIs(req, res) {
       return res.status(404).send({ message: "this domain not found" });
     }
   } catch (error) {
-    console.log(error);
+    return res.status(500).send({ message: "Server error" });
   }
 }
 

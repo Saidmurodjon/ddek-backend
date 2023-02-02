@@ -4,6 +4,6 @@ const conntroller = require("../controllers/Contact");
 
 // get
 
-contact.route("/").get(conntroller.get);
-contact.route("/").post(conntroller.create);
+contact.route("/").get(conntroller.Get);
+contact.route("/").post(conntroller.Post);
 module.exports = contact;

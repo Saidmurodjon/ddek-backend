@@ -111,9 +111,24 @@ const AdminBroOptions = {
     },
   ],
   branding: {
-    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6p-sWBRDuG53fSWVREq_FCNcEAmcAezXfXA&usqp=CAU",
-    companyName: "ddek",
-    softwareBrothers: false, // if Software Brothers logos should be shown in the sidebar footer
+    companyName: "FVH",
+    softwareBrothers: false,
+    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTx_JfCMt-xaSqYLAtIpDy-utmkmxnczNdzuw&usqp=CAU",
+    favicon:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTx_JfCMt-xaSqYLAtIpDy-utmkmxnczNdzuw&usqp=CAU", // OR false to hide the default one
+  },
+  locale: {
+    translations: {
+      messages: {
+        loginWelcome: "Administration Panel - Login", // the smaller text
+      },
+      labels: {
+        loginWelcome: "DDEK.UZ", // this could be your project name
+      },
+    },
+  },
+  assets: {
+    styles: [""],
   },
 };
 

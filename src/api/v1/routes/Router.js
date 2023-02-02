@@ -12,13 +12,14 @@ const orders = require("./Order");
 const workers = require("./Workers");
 const products = require("./Products");
 const hostingcreators = require("./NewHostingCreator");
-// const Authentication = require("../middlewares/Authentication");
+const contact = require("./Contact");
+const auth = require("./Auth");
+const Authentication = require("../middlewares/Authentication");
 // router
 router.get("/", (req, res) => {
   return res.send("Backend is working ...");
 });
 router.use("/login", login);
-// router.use(Authentication);
 router.use("/users", users);
 router.use("/whois", whois);
 router.use("/pochtas", pochta);
@@ -27,5 +28,8 @@ router.use("/orders", orders);
 router.use("/workers", workers);
 router.use("/products", products);
 router.use("/hostingcreators", hostingcreators);
-// router.use("/contact", contact);
+router.use("/contacts", contact);
+router.use(Authentication);
+
+router.use("/auth",auth);
 module.exports = router;
