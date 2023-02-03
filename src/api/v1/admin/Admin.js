@@ -113,9 +113,8 @@ const AdminBroOptions = {
   branding: {
     companyName: "FVH",
     softwareBrothers: false,
-    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTx_JfCMt-xaSqYLAtIpDy-utmkmxnczNdzuw&usqp=CAU",
-    favicon:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTx_JfCMt-xaSqYLAtIpDy-utmkmxnczNdzuw&usqp=CAU", // OR false to hide the default one
+    logo: "/public/images/logo.png",
+    favicon: "/public/images/logo.png",
   },
   locale: {
     translations: {
