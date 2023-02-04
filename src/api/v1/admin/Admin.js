@@ -1,14 +1,6 @@
 const AdminBro = require("admin-bro");
 const AdminBroExpress = require("admin-bro-expressjs");
-// const AdminBroMongoose = require('admin-bro-mongoose')
-// const mongoose = require('mongoose')
 const mongooseAdminBro = require("@admin-bro/mongoose");
-// AdminBro.registerAdapter(AdminBroMongoose)
-
-// const adminBro = new AdminBro({
-//   databases: [mongoose],
-//   rootPath: '/admin',
-// })
 const {
   ADMIN_EMAIL,
   ADMIN_PASSWORD,
@@ -26,9 +18,10 @@ const Order = require("../models/Order");
 const Contact = require("../models/Contact");
 const Pochta = require("../models/Pochta");
 const Hosting = require("../models/Hosting");
-const Workers = require("../models/Workers");
-const Products = require("../models/Products");
+const Workers = require("./uploader/WorkerUploader");
+const Products = require("./uploader/ProductUploader");
 const NewHostingCreator = require("../models/NewHostingCreator");
+
 AdminBro.registerAdapter(mongooseAdminBro);
 const AdminBroOptions = {
   resources: [
@@ -91,24 +84,8 @@ const AdminBroOptions = {
         },
       },
     },
-    {
-      resource: Workers,
-      options: {
-        parent: { name: "Our Team" },
-        properties: {
-          _id: { isVisible: false },
-        },
-      },
-    },
-    {
-      resource: Products,
-      options: {
-        parent: { name: "Our Team" },
-        properties: {
-          _id: { isVisible: false },
-        },
-      },
-    },
+    Workers,
+    Products,
   ],
   branding: {
     companyName: "FVH",
